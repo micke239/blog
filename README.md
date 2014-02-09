@@ -1,4 +1,4 @@
-webapp-boilerplate
+blog
 ==================
 
-My boilerplate containing my full webapp stack.
+My blog, currently not hosted anywhere.
