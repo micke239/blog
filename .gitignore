@@ -3,3 +3,4 @@ built/
 node_modules/
 /target
 /lib
+.DS_Store
