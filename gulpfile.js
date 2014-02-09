@@ -10,12 +10,11 @@ var javascripts = [
 	"./lib/javascript/angular-route/angular-route.js",
 	"./src/main/javascript/app.js",
 	"./src/main/javascript/routes.js",
-	"./src/main/javascript/services/services.js",
-	"./src/main/javascript/controllers/controllers.js",
-	"./src/main/javascript/controllers/View1Controller.js",
+	"./src/main/javascript/services/Version.js",
+	"./src/main/javascript/controllers/IndexController.js",
 	"./src/main/javascript/controllers/View2Controller.js",
-	"./src/main/javascript/filters/filters.js",
-	"./src/main/javascript/directives/directives.js"
+	"./src/main/javascript/filters/Interpolate.js",
+	"./src/main/javascript/directives/AppVersion.js"
 ];
 
 var javascriptTask = function(optimize) {
