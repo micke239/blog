@@ -1,0 +1,1 @@
+This folder contains the source code for the whole application-stack.

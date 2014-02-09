@@ -1,0 +1,23 @@
+{
+  "name": "webapp-boilerplate",
+  "version": "0.0.0",
+  "homepage": "https://github.com/micke239/webapp-boilerplate",
+  "authors": [
+    "micke239 micke239@gmail.com"
+  ],
+  "description": "My boilerplate containing my full webapp stack",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "> 0",
+    "angular-route": ">0",
+    "underscore": "> 0"
+  }
+}
