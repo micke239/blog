@@ -1,6 +1,10 @@
-built/
-.sass-cache/
-node_modules/
+/.sass-cache/
+/node_modules/
 /target
 /lib
 .DS_Store
+/.settings
+/.classpath
+/.externalToolBuilders
+/.project
+/bower_components/

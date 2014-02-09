@@ -5,9 +5,9 @@ var gulp = require('gulp'),
 	htmlmin = require('gulp-htmlmin');
 
 var javascripts = [
-	"./lib/javascript/underscore/underscore.js",
-	"./lib/javascript/angular/angular.js",
-	"./lib/javascript/angular-route/angular-route.js",
+	"./bower_components/underscore/underscore.js",
+	"./bower_components/angular/angular.js",
+	"./bower_components/angular-route/angular-route.js",
 	"./src/main/javascript/app.js",
 	"./src/main/javascript/routes.js",
 	"./src/main/javascript/services/Version.js",
@@ -21,11 +21,11 @@ var javascriptTask = function(optimize) {
 	return function() {
 		var js = gulp.src(javascripts)
 			.pipe(concat('app.js'));
-		
+
 		if (optimize) {
 			js.pipe(uglify());
 		}
-		
+
 		js.pipe(gulp.dest('./target/javascript'));
 	};
 };
@@ -43,7 +43,7 @@ var compassTask = function(optimize) {
 				comments: optimize ? false : true,
 				style: optimize ? "compressed" : "compact"
 			}));
-		
+
 		css.pipe(gulp.dest('./target/css'));
 	};
 };
@@ -54,14 +54,14 @@ gulp.task('compass-optimized', compassTask(true));
 var markupTask = function(optimize) {
 	return function() {
 		var markup = gulp.src('./src/main/markup/**/*html');
-		
+
 		if (optimize) {
 			markup.pipe(htmlmin({
 				collapseWhitespace: true,
 				removeComments: true
 			}));
 		}
-		
+
 		markup.pipe(gulp.dest('./target/markup'));
 	};
 };
