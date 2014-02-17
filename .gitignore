@@ -3,4 +3,8 @@
 /target
 /lib
 .DS_Store
+.classpath
+.externalToolBuilders
+.project
+.settings
 /bower_components/
