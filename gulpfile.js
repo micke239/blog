@@ -2,24 +2,27 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	compass = require('gulp-compass'),
-	htmlmin = require('gulp-htmlmin');
+	htmlmin = require('gulp-htmlmin'),
+	watch = require('gulp-watch'),
+	clean = require('gulp-clean'),
+	exec = require('execSync').exec;
 
-var javascripts = [
+var javascriptLibs = [
 	"./bower_components/underscore/underscore.js",
 	"./bower_components/angular/angular.js",
-	"./bower_components/angular-route/angular-route.js",
-	"./src/main/javascript/app.js",
-	"./src/main/javascript/routes.js",
-	"./src/main/javascript/services/Version.js",
-	"./src/main/javascript/controllers/IndexController.js",
-	"./src/main/javascript/controllers/View2Controller.js",
-	"./src/main/javascript/filters/Interpolate.js",
-	"./src/main/javascript/directives/AppVersion.js"
+	"./bower_components/angular-route/angular-route.js"
 ];
+
+var javascriptSrcs = ["./src/main/javascript/**/*js"];
+
+var scssSrcs = ['./src/main/sass/**/*scss'];
+var scssLibs = ['./bower_components/bootstrap-sass/vendor/assets/stylesheets/**/_*scss'];
+
+var markupSrcs = './src/main/markup/**/*html';
 
 var javascriptTask = function(optimize) {
 	return function() {
-		var js = gulp.src(javascripts)
+		var js = gulp.src(javascriptLibs.concat(javascriptSrcs))
 			.pipe(concat('app.js'));
 
 		if (optimize) {
@@ -35,16 +38,15 @@ gulp.task('javascript-optimized', javascriptTask(true));
 
 var compassTask = function(optimize) {
 	return function() {
-		var css = gulp.src('./src/main/sass/**/*scss')
+		var css = gulp.src(scssLibs.concat(scssSrcs))
+			.pipe(gulp.dest('./target/sass'))
 			.pipe(compass({
 				css: 'target/css',
-				sass: 'src/main/sass',
+				sass: 'target/sass',
 				image: 'src/main/images',
 				comments: optimize ? false : true,
 				style: optimize ? "compressed" : "compact"
 			}));
-
-		css.pipe(gulp.dest('./target/css'));
 	};
 };
 
@@ -53,7 +55,7 @@ gulp.task('compass-optimized', compassTask(true));
 
 var markupTask = function(optimize) {
 	return function() {
-		var markup = gulp.src('./src/main/markup/**/*html');
+		var markup = gulp.src(markupSrcs);
 
 		if (optimize) {
 			markup.pipe(htmlmin({
@@ -65,6 +67,21 @@ var markupTask = function(optimize) {
 		markup.pipe(gulp.dest('./target/markup'));
 	};
 };
+
+gulp.task('watch', function() {
+	gulp.src(javascriptSrcs)
+		.pipe(watch(function() {
+			javascriptTask(false)();
+		}));
+	gulp.src(scssSrcs)
+		.pipe(watch(function() {
+			compassTask(false)();
+		}));
+	gulp.src(markupSrcs)
+		.pipe(watch(function() {
+			markupTask(false)();
+		}));
+});
 
 gulp.task('markup', markupTask(false));
 gulp.task('markup-optimized', markupTask(true));

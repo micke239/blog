@@ -1,71 +1,57 @@
-/*------------------------------------*\
-    VARS.SCSS
-\*------------------------------------*/
-/**
- * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
- * keep, simply redefine here. This means that if inuit.css, for example, sets
- * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
- * that variable in this file. inuit.css ignores its own variables in favour of
- * using your own, so you can completely modify how inuit.css works without ever
- * having to alter the framework itself.
+/*** 
+ * VARS
  */
+$base-spacing-unit: 18px;
+$half-spacing-unit: 9px; 
 
+// bootstrap imports
 
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
 
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
 
-/*------------------------------------*\
-    $OBJECTS-AND-ABSTRACTIONS
-\*------------------------------------*/
-/**
- * All of inuit.css’ objects and abstractions are initially turned off by
- * default. This means that you start any project with as little as possible,
- * and introducing objects and abstractions is as simple as switching the
- * following variables to `true`.
- */
-$use-grids:         true;
-$use-flexbox:       false;
-$use-columns:       false;
-$use-nav:           false;
-$use-options:       false;
-$use-pagination:    false;
-$use-breadcrumb:    false;
-$use-media:         true;
-$use-marginalia:    false;
-$use-island:        true;
-$use-block-list:    false;
-$use-matrix:        false;
-$use-split:         false;
-$use-this-or-this:  false;
-$use-link-complex:  false;
-$use-flyout:        false;
-$use-arrows:        false;
-$use-sprite:        false;
-$use-icon-text:     false;
-$use-beautons:      false;
-$use-lozenges:      false;
-$use-rules:         false;
-$use-stats:         false;
-$use-greybox:       false;
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/glyphicons";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/wells";
+@import "bootstrap/close";
 
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
 
-
-
-
-/*------------------------------------*\
-    $OVERRIDES
-\*------------------------------------*/
-/**
- * Place any variables that should override inuit.css’ defaults here.
- */
-
-
-
-
-
-/*------------------------------------*\
-    $CUSTOM
-\*------------------------------------*/
-/**
- * Place any of your own variables that sit on top of inuit.css here.
- */
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";

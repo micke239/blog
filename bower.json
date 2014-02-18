@@ -18,6 +18,7 @@
   "dependencies": {
     "angular": "> 0",
     "angular-route": ">0",
-    "underscore": "> 0"
+    "underscore": "> 0",
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git"
   }
 }

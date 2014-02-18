@@ -1,4 +1,8 @@
 angular.module('App.controllers')
-  .controller('View2Controller', function($scope) {
-    $scope.viewName = "View 2";
-  });
+  .controller('View2Controller', ['$scope', "versionService", function($scope, versionService) {
+  	versionService.getVersion().then(function(data) {
+  		$scope.viewName = data.version;
+  	}, function(data) {
+  		$scope.viewName = "fail"
+  	});
+  }]);

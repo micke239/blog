@@ -15,8 +15,10 @@
 		<javax.servlet-version>3.0.1</javax.servlet-version>
 		<log4j-version>1.2.17</log4j-version>
 		<junit-version>4.11</junit-version>
+		<jackson-version>2.3.0</jackson-version>
 	</properties>
 	<dependencies>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -85,6 +87,18 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+        <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
@@ -135,6 +149,7 @@
 		</pluginManagement>
         
         <plugins>
+
         	<plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-war-plugin</artifactId>
@@ -157,6 +172,7 @@
 			    	</webResources>
 		        </configuration>
 	      	</plugin>
+
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>3.1.1</version>
@@ -171,6 +187,7 @@
                     <downloadJavadocs>true</downloadJavadocs>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -183,6 +200,7 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+
 			<plugin>
 			  <groupId>org.codehaus.mojo</groupId>
 			  <artifactId>exec-maven-plugin</artifactId>
@@ -219,12 +237,13 @@
 			      	<configuration>
 			      		<executable>gulp</executable>
 				      	<arguments>
-				      		<argument>build-optimized</argument>
+				      		<argument>build</argument>
 				      	</arguments>
 			      	</configuration>
 			    </execution>
 			  </executions>
 			</plugin>
+
         </plugins>
     </build>
 </project>

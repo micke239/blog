@@ -1,10 +1,12 @@
 angular.module('App.directives')
-  .directive('appVersion', ['version',
-    function(version) {
+  .directive('appVersion', ['versionService',
+    function(versionService) {
       "use strict";
 
       return function(scope, elm, attrs) {
-        elm.text(version);
+      	versionService.getVersion().then(function(data) {
+			elm.text(data.version);
+      	});   
       };
     }
   ]);
